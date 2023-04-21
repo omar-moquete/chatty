@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, SyntheticEvent } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import classes from "./ChatRoom.module.scss";
 import { MessageItem } from "./MessageItem";
 import {
@@ -59,7 +59,7 @@ const ChatRoom: React.FC = () => {
     });
   };
 
-  const sendMessageHandler = async (): Promise<void> => {
+  const sendMessageHandler = useCallback(async (): Promise<void> => {
     if (messageInputRef.current === null) return;
     if (!user) return;
     const text = messageInputRef.current.value;
@@ -75,16 +75,16 @@ const ChatRoom: React.FC = () => {
     messageInputRef.current.value = "";
     setShowEmojiPicker(false);
     await addDoc(collection(firestore, "/messages"), newMessage);
-  };
+  }, [user]);
 
-  const onEmojiSelection = (
-    emojiData: EmojiClickData,
-    event: MouseEvent
-  ): void => {
-    if (messageInputRef.current === null) return;
-    messageInputRef.current.value += emojiData.emoji;
-    messageInputRef.current.focus();
-  };
+  const onEmojiSelection = useCallback(
+    (emojiData: EmojiClickData, event: MouseEvent): void => {
+      if (messageInputRef.current === null) return;
+      messageInputRef.current.value += emojiData.emoji;
+      messageInputRef.current.focus();
+    },
+    []
+  );
 
   // Handle on enter
   useEffect(() => {
@@ -98,7 +98,7 @@ const ChatRoom: React.FC = () => {
     return () => {
       document.removeEventListener("keyup", callback);
     };
-  }, []);
+  }, [sendMessageHandler]);
 
   // Update UI with new messages
   useEffect(() => {
@@ -114,7 +114,7 @@ const ChatRoom: React.FC = () => {
 
   useEffect(() => {
     scrollToBottom("smooth");
-  }, [messages]);
+  }, [messagesState]);
 
   return (
     <div className={classes.chatRoom}>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Card from "./components/UI/Card";
 import ChatRoom from "./components/ChatRoom";
 import classes from "./App.module.scss";
@@ -6,7 +6,6 @@ import SignIn from "./components/SignIn";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "./api-config";
 import { getAuth, signOut } from "firebase/auth";
-import { connectFirestoreEmulator, getFirestore } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 const app = initializeApp(firebaseConfig);
