@@ -15,14 +15,12 @@
 
 @mixin signInCard {
   height: 80vh;
-  width: 70vw;
+  width: 80vw;
   max-width: 700px;
 }
 @mixin signInCardSmall {
-  height: 100vh;
-  width: 100vw;
+  width: 90vw;
   max-width: unset;
-  border-radius: 0;
   margin: 0;
 }
 
@@ -34,16 +32,14 @@
   overflow-y: auto;
   overflow-x: hidden;
   height: 80vh;
-  margin-top: 10vh;
-  width: 70vw;
+  width: 80vw;
   max-width: 700px;
-  padding: 32px 12px;
+  padding: 32px 12px 50px 12px;
+  position: relative;
 }
+
 @mixin chatSectionSmall {
-  width: 100vw;
-  height: 95vh;
   max-width: unset;
-  border-radius: 0;
   margin: 0;
-  padding: 100px 12px 50px 12px;
+  width: 90vw;
 }

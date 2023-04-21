@@ -2,7 +2,7 @@
 @use "../styles/variables";
 
 .chatRoom {
-  ul {
+  .messages {
     @include mixins.chatSection;
   }
 
@@ -10,13 +10,16 @@
     display: flex;
     width: 100%;
     bottom: 0;
-    position: relative;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0.9;
   }
 
   .emojiPicker {
     position: absolute;
     bottom: 0;
-    right: 0;
+    left: 0;
     width: 100%;
     max-width: 500px;
     height: 60vh;
@@ -46,6 +49,7 @@
     background-color: variables.$background-lighter-color;
     transition: all 0.1s ease-in-out;
     border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
     border: none;
     color: inherit;
     cursor: pointer;
@@ -69,7 +73,7 @@
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .chatRoom > ul {
     @include mixins.chatSectionSmall;
   }
@@ -79,9 +83,5 @@
     height: 5vh;
     position: fixed;
     bottom: 0;
-    input,
-    .icon {
-      border-radius: 0;
-    }
   }
 }

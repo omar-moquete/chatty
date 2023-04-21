@@ -118,7 +118,7 @@ const ChatRoom: React.FC = () => {
 
   return (
     <div className={classes.chatRoom}>
-      <ul ref={uListRef}>
+      <ul className={classes.messages} ref={uListRef}>
         {user &&
           messagesState &&
           messagesState.map((message) => {
@@ -133,53 +133,52 @@ const ChatRoom: React.FC = () => {
               />
             );
           })}
-      </ul>
-
-      <div className={classes.inputWrapper}>
-        <button
-          className={classes.icon}
-          onClick={() => {
-            setShowEmojiPicker((ls) => !ls);
-          }}
-        >
-          <EmojiIcon />
-        </button>
-        <input
-          type="text"
-          placeholder="Start typing..."
-          ref={messageInputRef}
-        />
-
-        <button className={classes.icon} onClick={sendMessageHandler}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+        <div className={classes.inputWrapper}>
+          <button
+            className={classes.icon}
+            onClick={() => {
+              setShowEmojiPicker((ls) => !ls);
+            }}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"
-            />
-          </svg>
-        </button>
+            <EmojiIcon />
+          </button>
+          <input
+            type="text"
+            placeholder="Start typing..."
+            ref={messageInputRef}
+          />
 
-        {showEmojiPicker && (
-          <div className={classes.emojiPicker}>
-            <EmojiPicker
-              width="100%"
-              height="100%"
-              lazyLoadEmojis={true}
-              autoFocusSearch={false}
-              theme={Theme.DARK}
-              onEmojiClick={onEmojiSelection}
-              emojiStyle={EmojiStyle.NATIVE}
-              emojiVersion="5.0"
-            />
-          </div>
-        )}
-      </div>
+          <button className={classes.icon} onClick={sendMessageHandler}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"
+              />
+            </svg>
+          </button>
+
+          {showEmojiPicker && (
+            <div className={classes.emojiPicker}>
+              <EmojiPicker
+                lazyLoadEmojis={true}
+                autoFocusSearch={false}
+                theme={Theme.DARK}
+                onEmojiClick={onEmojiSelection}
+                emojiStyle={EmojiStyle.NATIVE}
+                emojiVersion="5.0"
+                height="100%"
+                width="100%"
+              />
+            </div>
+          )}
+        </div>
+      </ul>
     </div>
   );
 };

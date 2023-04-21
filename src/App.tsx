@@ -19,7 +19,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className={classes.app}>
       <header className={classes.header}>
         <h3>chatty</h3>
         {user && <button onClick={signOutHandler}>Sign Out</button>}
