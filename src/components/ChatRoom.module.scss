@@ -1,33 +1,32 @@
 @use "../styles/mixins";
 @use "../styles/variables";
 
+.messages {
+  @include mixins.chatSection;
+}
+
+.inputWrapper {
+  display: flex;
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: 0.9;
+}
+
+.emojiPicker {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-width: 500px;
+  height: 60vh;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-bottom: 60px;
+}
 .chatRoom {
-  .messages {
-    @include mixins.chatSection;
-  }
-
-  .inputWrapper {
-    display: flex;
-    width: 100%;
-    bottom: 0;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    opacity: 0.9;
-  }
-
-  .emojiPicker {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    max-width: 500px;
-    height: 60vh;
-    padding-left: 12px;
-    padding-right: 12px;
-    margin-bottom: 60px;
-  }
-
   input {
     border-bottom-left-radius: 5px;
     font-size: 1em;
@@ -76,12 +75,5 @@
 @media (max-width: 600px) {
   .chatRoom > ul {
     @include mixins.chatSectionSmall;
-  }
-
-  .inputWrapper {
-    width: 100%;
-    height: 5vh;
-    position: fixed;
-    bottom: 0;
   }
 }
