@@ -1,0 +1,46 @@
+@use "./styles/mixins";
+@use "./styles/variables";
+@import url("https://fonts.googleapis.com/css2?family=Arvo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  color: variables.$text-color-high-emphasis;
+  font-size: 0.9em;
+  @include mixins.gradient;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+  background: variables.$background-lighter-color;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: variables.$text-color-high-emphasis;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: variables.$accent-color-1;
+}

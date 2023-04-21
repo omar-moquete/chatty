@@ -1,0 +1,49 @@
+@use "./variables";
+
+@mixin gradient {
+  background-image: linear-gradient(
+    111.3deg,
+    variables.$accent-color-1 9.6%,
+    variables.$accent-color-2 93.6%
+  );
+}
+
+@mixin shadow {
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+
+@mixin signInCard {
+  height: 80vh;
+  width: 70vw;
+  max-width: 700px;
+}
+@mixin signInCardSmall {
+  height: 100vh;
+  width: 100vw;
+  max-width: unset;
+  border-radius: 0;
+  margin: 0;
+}
+
+@mixin chatSection {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: 18px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 80vh;
+  margin-top: 10vh;
+  width: 70vw;
+  max-width: 700px;
+  padding: 32px 12px;
+}
+@mixin chatSectionSmall {
+  width: 100vw;
+  height: 100vh;
+  max-width: unset;
+  border-radius: 0;
+  margin: 0;
+  padding: 120px 12px 100px 12px;
+}

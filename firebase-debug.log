@@ -1,0 +1,58 @@
+[debug] [2023-04-21T16:02:08.973Z] ----------------------------------------------------------------------
+[debug] [2023-04-21T16:02:08.976Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\moque\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init functions
+[debug] [2023-04-21T16:02:08.977Z] CLI Version:   11.25.1
+[debug] [2023-04-21T16:02:08.977Z] Platform:      win32
+[debug] [2023-04-21T16:02:08.977Z] Node Version:  v19.1.0
+[debug] [2023-04-21T16:02:08.978Z] Time:          Fri Apr 21 2023 12:02:08 GMT-0400 (Eastern Daylight Time)
+[debug] [2023-04-21T16:02:08.978Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-04-21T16:02:09.065Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-21T16:02:09.066Z] > authorizing via signed-in user (moqueteperez@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\moque\Desktop\Chat test\chatty
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2023-04-21T16:02:58.429Z] Using project from CLI flag: chatty-c5177
+[debug] [2023-04-21T16:02:58.433Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/chatty-c5177 [none]
+[debug] [2023-04-21T16:02:58.734Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/chatty-c5177 200
+[debug] [2023-04-21T16:02:58.734Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/chatty-c5177 {"projectId":"chatty-c5177","projectNumber":"634737694416","displayName":"chatty","name":"projects/chatty-c5177","resources":{"hostingSite":"chatty-c5177"},"state":"ACTIVE","etag":"1_95791801-6871-402f-a33d-d54ad87a9d5f"}
+[info] i  Using project chatty-c5177 (chatty) 
+[info] 
+=== Functions Setup
+[debug] [2023-04-21T16:02:58.769Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-21T16:02:58.770Z] > authorizing via signed-in user (moqueteperez@gmail.com)
+[debug] [2023-04-21T16:02:58.770Z] [iam] checking project chatty-c5177 for permissions ["firebase.projects.get"]
+[debug] [2023-04-21T16:02:58.770Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/chatty-c5177:testIamPermissions [none]
+[debug] [2023-04-21T16:02:58.770Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/chatty-c5177:testIamPermissions x-goog-quota-user=projects/chatty-c5177
+[debug] [2023-04-21T16:02:58.771Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/chatty-c5177:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2023-04-21T16:02:58.993Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/chatty-c5177:testIamPermissions 200
+[debug] [2023-04-21T16:02:58.993Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/chatty-c5177:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2023-04-21T16:02:58.994Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/chatty-c5177/services/cloudfunctions.googleapis.com [none]
+[debug] [2023-04-21T16:02:58.994Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/chatty-c5177/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/chatty-c5177
+[debug] [2023-04-21T16:02:58.995Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/chatty-c5177/services/runtimeconfig.googleapis.com [none]
+[debug] [2023-04-21T16:02:58.996Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/chatty-c5177/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/chatty-c5177
+[debug] [2023-04-21T16:02:59.275Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/chatty-c5177/services/cloudfunctions.googleapis.com 200
+[debug] [2023-04-21T16:02:59.275Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/chatty-c5177/services/cloudfunctions.googleapis.com [omitted]
+[debug] [2023-04-21T16:02:59.372Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/chatty-c5177/services/runtimeconfig.googleapis.com 200
+[debug] [2023-04-21T16:02:59.372Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/chatty-c5177/services/runtimeconfig.googleapis.com [omitted]
+[info] 
+Detected existing codebase(s): default
+

@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import Card from "./components/UI/Card";
+import ChatRoom from "./components/ChatRoom";
+import classes from "./App.module.scss";
+import SignIn from "./components/SignIn";
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from "./api-config";
+import { getAuth, signOut } from "firebase/auth";
+import { connectFirestoreEmulator, getFirestore } from "firebase/firestore";
+import { useAuthState } from "react-firebase-hooks/auth";
 
-function App() {
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+const App: React.FC = () => {
+  const [user] = useAuthState(auth);
+
+  const signOutHandler = (): void => {
+    signOut(auth);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      <header className={classes.header}>
+        <h3>chatty</h3>
+        {user && <button onClick={signOutHandler}>Sign Out</button>}
       </header>
+      <Card className={classes.card}>{user ? <ChatRoom /> : <SignIn />}</Card>
     </div>
   );
-}
+};
 
 export default App;

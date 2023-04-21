@@ -1,0 +1,39 @@
+@use "../../styles/mixins";
+
+.btn {
+  display: flex;
+  gap: 18px;
+  background-color: #4285f4;
+  color: #fff;
+  border: none;
+  padding: 2px;
+  padding-right: 18px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  align-items: center;
+
+  @include mixins.shadow;
+
+  @media (hover: hover) {
+    &:hover {
+      box-shadow: 0 0 3px 3px rgba(66, 133, 244, 0.3);
+    }
+  }
+  &:active {
+    box-shadow: 0 0 3px 3px rgba(66, 133, 244, 0.3);
+  }
+
+  span {
+    font-size: 16px;
+    line-height: 48px;
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+  div {
+    padding: 15px;
+    background-color: #fff;
+  }
+  svg {
+    background-color: #fff;
+  }
+}

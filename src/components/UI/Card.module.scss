@@ -1,0 +1,10 @@
+@use "../../styles/variables";
+@use "../../styles/mixins";
+
+.card {
+  border-radius: 4px;
+  background-color: variables.$background-color;
+  width: fit-content;
+  height: fit-content;
+  @include mixins.shadow;
+}

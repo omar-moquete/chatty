@@ -1,0 +1,86 @@
+@use "../styles/mixins";
+@use "../styles/variables";
+
+.chatRoom {
+  ul {
+    @include mixins.chatSection;
+  }
+
+  .inputWrapper {
+    display: flex;
+    width: 100%;
+    bottom: 0;
+    position: relative;
+  }
+
+  .emojiPicker {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    max-width: 500px;
+    height: 60vh;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-bottom: 60px;
+  }
+
+  input {
+    border-bottom-left-radius: 5px;
+    font-size: 1em;
+    width: 100%;
+    padding-left: 8px;
+    background-color: variables.$background-lighter-color;
+    border: none;
+    color: inherit;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  .icon {
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    background-color: variables.$background-lighter-color;
+    transition: all 0.1s ease-in-out;
+    border-bottom-right-radius: 5px;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: variables.$text-color-high-emphasis;
+        color: variables.$background-lighter-color;
+      }
+    }
+
+    &:active {
+      background-color: variables.$text-color-high-emphasis;
+      color: variables.$background-lighter-color;
+    }
+    svg {
+      height: 28px;
+      width: 28px;
+      stroke-width: 1.5;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .chatRoom > ul {
+    @include mixins.chatSectionSmall;
+  }
+
+  .inputWrapper {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    input,
+    .icon {
+      border-radius: 0;
+    }
+  }
+}
