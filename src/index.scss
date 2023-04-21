@@ -14,6 +14,7 @@ body {
   font-family: "Roboto", sans-serif;
   color: variables.$text-color-high-emphasis;
   font-size: 0.9em;
+  overflow-x: hidden;
   @include mixins.gradient;
 }
 
