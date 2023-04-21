@@ -31,7 +31,7 @@ const ChatRoom: React.FC = () => {
   const [messagesLoaded, setMessagesLoaded] = useState<boolean>(false);
   const uListRef = useRef<HTMLUListElement>(null);
   const messageInputRef = useRef<HTMLInputElement>(null);
-  const [showEmojiPicker, setShowEmojiPicker] = useState<boolean>(true);
+  const [showEmojiPicker, setShowEmojiPicker] = useState<boolean>(false);
 
   const messagesRef = query(
     collection(firestore, "/messages"),
