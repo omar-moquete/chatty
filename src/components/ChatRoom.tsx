@@ -165,8 +165,8 @@ const ChatRoom: React.FC = () => {
           </svg>
         </button>
 
-        <div className={classes.emojiPicker}>
-          {showEmojiPicker && (
+        {showEmojiPicker && (
+          <div className={classes.emojiPicker}>
             <EmojiPicker
               width="100%"
               height="100%"
@@ -177,8 +177,8 @@ const ChatRoom: React.FC = () => {
               emojiStyle={EmojiStyle.NATIVE}
               emojiVersion="5.0"
             />
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );
