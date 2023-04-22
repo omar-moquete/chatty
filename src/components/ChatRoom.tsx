@@ -170,7 +170,9 @@ const ChatRoom: React.FC = () => {
       </ul>
       <div className={classes.inputWrapper}>
         <button
-          className={classes.icon}
+          className={`${classes.icon} ${
+            showEmojiPicker ? classes.iconActive : ""
+          }`}
           onClick={() => {
             setShowEmojiPicker((ls) => !ls);
           }}

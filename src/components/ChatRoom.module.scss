@@ -74,6 +74,10 @@
       stroke-width: 1.5;
     }
   }
+  .iconActive {
+    background-color: variables.$text-color-high-emphasis;
+    color: variables.$background-lighter-color;
+  }
 }
 
 @media (max-width: 600px) {
