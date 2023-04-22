@@ -116,6 +116,40 @@ const ChatRoom: React.FC = () => {
     scrollToBottom("smooth");
   }, [messagesState]);
 
+  //Notification handler
+  useEffect(() => {
+    (async () => {
+      // Check for compatibility
+      if (!("Notification" in window)) return;
+
+      const permission: NotificationPermission =
+        await Notification.requestPermission();
+
+      if (permission !== "granted") return;
+      if (!messagesLoaded) return;
+      if (!user) return;
+
+      const newMessage = messagesState?.at(-1);
+      if (!newMessage) return;
+
+      if (+new Date() > +newMessage.createdAt?.toDate() + 5000) return;
+      if (newMessage.userId === user.uid) return;
+
+      const notification: Notification = new Notification(
+        `New message from ${newMessage.authorUsername}`,
+        {
+          icon: newMessage.imageUrl || "",
+          body: newMessage.text,
+          tag: newMessage.userId,
+        }
+      );
+
+      notification.addEventListener("click", () => {
+        window.open("https://chatty.omarmoquete.dev", "_blank");
+      });
+    })();
+  }, [messagesState]);
+
   return (
     <div className={classes.chatRoom}>
       <ul className={classes.messages} ref={uListRef}>
