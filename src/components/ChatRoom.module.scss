@@ -28,7 +28,6 @@
   flex-direction: column;
   height: 80vh;
   input {
-    border-bottom-left-radius: 5px;
     font-size: 1em;
     width: 100%;
     padding-left: 8px;
@@ -47,12 +46,17 @@
     align-items: center;
     background-color: variables.$background-lighter-color;
     transition: all 0.1s ease-in-out;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
     border: none;
     color: inherit;
     cursor: pointer;
 
+    &:first-child {
+      border-bottom-left-radius: 5px;
+    }
+
+    &:last-child {
+      border-bottom-right-radius: 5px;
+    }
     @media (hover: hover) {
       &:hover {
         background-color: variables.$text-color-high-emphasis;
